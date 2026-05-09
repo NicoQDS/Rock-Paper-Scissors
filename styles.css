@@ -1,0 +1,13 @@
+/* * {
+    outline: 1px solid red;
+} */
+
+.button-container {    
+    display: flex;
+    justify-content: right;
+}
+
+button.play {
+    padding: 5px;
+    margin: 10px
+}
