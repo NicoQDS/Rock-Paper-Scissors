@@ -4,10 +4,30 @@
 
 .button-container {    
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-button.play {
-    padding: 5px;
-    margin: 10px
+button {
+    padding: 5px 30px 5px 30px;
+    margin: 0px 5px 0px 5px;
+    border-radius: 8px;
+    color: white;
+    border: none;
 }
+
+#rock {
+    background-color: #6B7280;
+}
+
+#paper {
+    background-color: #FEF08A;
+    color: #53565c;
+}
+
+#scissor {
+    background-color: #EF4444;
+}
+
+
