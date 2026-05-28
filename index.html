@@ -9,10 +9,29 @@
     <script src="javascript.js" defer></script>
 <body>
 
-<div class="button-container">
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissor</button>
+<div id="container">
+    <div id="button-container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissor</button>
+    </div>
+    <div id="result-container">
+        <p id="result-label"></p>
+        <div id="choices-container">
+            <p id="player-choice"></p>
+            <p id="pc-choice"></p>
+        </div>        
+    </div>
+    <div id="score-container">
+        <p id="player-label">Player:</p>
+        <p id="player-score">0</p>
+        <p id="pc-label">PC:</p>
+        <p id="pc-score">0</p>
+        <p id="draw-label">Draw:</p>
+        <p id="draw-score">0</p>
+    </div>
+    <div id="game-result"></div>
+
 </div>
 
 </body>

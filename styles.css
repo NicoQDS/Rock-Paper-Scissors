@@ -2,11 +2,31 @@
     outline: 1px solid red;
 } */
 
-.button-container {    
+p {
+    color: #53565c;
+    font-size: 13px;
+}
+
+#player-label, #pc-label, #draw-label {
+    margin: 0px 2px 0px 10px;
+}
+#player-score, #pc-score, #draw-score {
+    margin: 0px 10px 0px 0px;
+}
+
+#container {    
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+#button-container {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
 
 button {
@@ -30,4 +50,40 @@ button {
     background-color: #EF4444;
 }
 
+#score-container {    
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#result-container {    
+    color: #53565c;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#result-label {    
+    text-align: center;
+    margin: 0px 10px 0px 10px;
+
+}
+
+#choices-container {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-choice, #pc-choice{
+    margin: 0px 10px 0px 10px;
+}
+
+#game-result {
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+}

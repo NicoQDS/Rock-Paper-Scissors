@@ -5,6 +5,13 @@ let roundNum = 0
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissor = document.querySelector("#scissor");
+const scorePlayer = document.querySelector("#player-score")
+const scorePc = document.querySelector("#pc-score")
+const scoreDraw = document.querySelector("#draw-score")
+const resultLabel = document.querySelector("#result-label")
+const choicePlayer = document.querySelector("#player-choice")
+const choicePC = document.querySelector("#pc-choice")
+const resultGame = document.querySelector("#game-result")
 
 // Read which button is pressed and returning the player choice
 btnRock.addEventListener("click", function (e) {
@@ -41,16 +48,32 @@ function playRound(playerChoice) { // compare user and pc choice to determin the
 
     if (pc_Selec == player_Selec) {
         game_result = ("\nIt's a DRAW!!!")
+        resultLabel.textContent = game_result
+        choicePlayer.textContent = "Player: ".concat(player_Selec)
+        choicePC.textContent = "PC: ".concat(pc_Selec)
         draws ++
+        scoreDraw.textContent = draws
+        checkGameFinished(draws, computerScore, humanScore)
+
     } else if (player_Selec=='paper') {
         switch (pc_Selec) {
             case 'rock':
                 game_result = win_text
                 humanScore ++
+                scorePlayer.textContent = humanScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;
             case 'scissor':
                 game_result = loose_text
                 computerScore ++
+                scorePc.textContent = computerScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;        
             default:
                 break;
@@ -60,10 +83,20 @@ function playRound(playerChoice) { // compare user and pc choice to determin the
             case 'scissor':
                 game_result = win_text
                 humanScore ++
+                scorePlayer.textContent = humanScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;
             case 'paper':
                 game_result = loose_text
                 computerScore ++
+                scorePc.textContent = computerScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;        
             default:
                 break;
@@ -73,30 +106,42 @@ function playRound(playerChoice) { // compare user and pc choice to determin the
             case 'paper':
                 game_result = win_text
                 humanScore ++
+                scorePlayer.textContent = humanScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;
             case 'rock':
                 game_result = loose_text
                 computerScore ++
+                scorePc.textContent = computerScore
+                resultLabel.textContent = game_result
+                choicePlayer.textContent = "Player: ".concat(player_Selec)
+                choicePC.textContent = "PC: ".concat(pc_Selec)
+                checkGameFinished(draws, computerScore, humanScore)
                 break;        
             default:
                 break;
         }
     }
-
-    console.log(game_result, '\n' ,"\nPlayer choice: ".concat(player_Selec), "\nPC choice: ".concat(pc_Selec), '\n ','\nYour score: '.concat(humanScore),'\nComputer score: '.concat(computerScore),'\nDraws number: '.concat(draws) )
 }
 
-//Play 5 consecutive rounds, keeps track of the score, print the game result at the end
-function playGame() {
-    while (roundNum<5) {
-        playRound()
-        roundNum ++
-    }
+function checkGameFinished(draws, computerScore, humanScore) {
 
-    if (humanScore>computerScore) {
-        console.log("\nYou won the GAME! You are the champion!")
-    } else if (humanScore<computerScore) {
-        console.log("\nYou lost the GAME! Shame on you!")
+    if (draws + computerScore + humanScore == 5) {
+        if (humanScore ==  Math.max(draws, computerScore, humanScore)){
+            result_output = "!! YOU WON THE GAME !!";
+        } else if (computerScore ==  Math.max(draws, computerScore, humanScore)){
+            result_output = "OH NOOOO, you lost...";
+        } else if (draws ==  Math.max(draws, computerScore, humanScore)){
+            result_output = "It's a DRAW";
+        }
+        
+        resultGame.textContent = result_output
+        btnRock.disabled = true
+        btnPaper.disabled = true
+        btnScissor.disabled = true
     }
-    
 }
+
